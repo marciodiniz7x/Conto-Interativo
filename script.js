@@ -5,7 +5,7 @@ const titleDestaque = document.querySelector('.destacar-title');
 const titleText = document.querySelector('.title');
 const iniciarLeitura = document.querySelector('.iniciar-leitura');
 
-// Criando os olhos de Goo na capa
+// Cria os olhos de Goo na capa
 const gooEyes = document.createElement('div');
 gooEyes.classList.add('goo-eyes');
 
