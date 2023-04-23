@@ -4,6 +4,7 @@ const titleText = document.querySelector('.title');
 const iniciarLeitura = document.querySelector('.iniciar-leitura');
 
 function iniciarCapa() {
+    
     titleDestaque.style.marginTop = "0px";
     setTimeout(() => {
         titleText.style.marginLeft = "0px";
