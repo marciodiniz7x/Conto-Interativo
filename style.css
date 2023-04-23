@@ -8,21 +8,53 @@ body {
     font-family: 'Goudy Bookletter 1911', serif;
 }
 h1 {
-    font-family: 'Mystery Quest', cursive;
-}
-.destacar-title {
-    
-    color: #316421;
+    font-family: 'Mystery Quest';
 }
 
-.testes {
-    margin-top: 40px;
-    width: 600px;
-    height: 850px;
+
+.capa {
+    margin-top: -80px;
+    width: 705px;
+    height: 1125px;
+    transform: scale(0.8);
     padding: 20px;
     box-shadow: 1px 1px 10px 1px #3164217e;
     border: 1px solid #3164215d;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    background-image: url(images/capa-bg.png);
+    background-size: cover;
+    
+}
+
+.capa h1 {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    text-shadow: 5px 5px 30px rgb(240, 205, 51);
+    color: #25190e;
+}
+.capa .destacar-title {
+    font-size: 100px;
+}
+.capa .title {
+    font-size: 50px;
+}
+.iniciar-leitura {
+    margin-top: 50%;
+    background-color: white;
+    color: black;
+    box-shadow: 1px 1px 10px 1px black;
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 400ms;
+}
+.iniciar-leitura:hover {
+    background-color: #2A603A;
+    color: wheat;
 }
