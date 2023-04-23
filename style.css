@@ -81,7 +81,28 @@ h1 {
 }
 
 .goo-eyes {
-    
+    display: flex;
+    margin-top: 980px;
+    margin-left: -130px;
+    position: fixed;
+
+    width: 50px;
+    height: 50px;
+}
+.goo-eyes .eyes {
+    background-color: #206A58;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+.goo-eyes .olho1 {
+    margin-top: 24px;
+    margin-left: 5px;
+}
+
+.goo-eyes .olho2 {
+    margin-top: 20px;
+    margin-left: 12px;
 }
 
 /* Pré-classes */
@@ -94,8 +115,13 @@ h1 {
     animation: blurin 500ms linear;
 }
 
+/* Pré-classes com animação */
 .glitch {
     animation: glitch 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+}
+
+.piscar {
+    animation: piscar 5s infinite;
 }
 
 /* Animações */
@@ -142,4 +168,65 @@ h1 {
       transform: translate(0);
       opacity: 0;
     }
-  }
+}
+
+@keyframes piscar {
+    0% {
+        opacity: 0;
+    }
+
+    /* piscada 1 */
+    38% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    42.5% {
+        opacity: 0;
+    }
+    43% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 0;
+    }
+
+    /* piscada 2 */
+    58% {
+        opacity: 0;
+    }
+    60% {
+        opacity: 1;
+    }
+    62.5% {
+        opacity: 0;
+    }
+    63% {
+        opacity: 1;
+    }
+    65% {
+        opacity: 0;
+    }
+
+    /* piscada 3 */
+    78% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    82.5% {
+        opacity: 0;
+    }
+    83% {
+        opacity: 1;
+    }
+    85% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
