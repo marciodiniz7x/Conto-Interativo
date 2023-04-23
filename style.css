@@ -13,6 +13,7 @@ h1 {
 
 
 .capa {
+    overflow: hidden;
     margin-top: -80px;
     width: 705px;
     height: 1125px;
@@ -35,12 +36,19 @@ h1 {
     text-shadow: 5px 5px 30px rgb(240, 205, 51);
     color: #25190e;
 }
+
 .capa .destacar-title {
+    margin-top: -40%;
     font-size: 100px;
+    transition: 400ms;
 }
+
 .capa .title {
+    margin-left: -120%;
     font-size: 50px;
+    transition: 400ms;
 }
+
 .iniciar-leitura {
     margin-top: 50%;
     background-color: white;
@@ -57,4 +65,33 @@ h1 {
 .iniciar-leitura:hover {
     background-color: #2A603A;
     color: wheat;
+}
+
+
+/* Pré-classes */
+
+.sumir {
+    display: none;
+}
+
+.blur-surgir {
+    animation: blurin 500ms linear;
+}
+
+/* Animações */
+
+@keyframes blurin {
+    0% {
+        opacity: 0;
+        filter: blur(15px);
+    }
+
+    50% {
+        filter: blur(15px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+    }
 }
