@@ -1,0 +1,28 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+h1 {
+    font-family: 'Mystery Quest', cursive;
+}
+.destacar-title {
+    
+    color: #316421;
+}
+
+.testes {
+    margin-top: 40px;
+    width: 600px;
+    height: 850px;
+    padding: 20px;
+    box-shadow: 1px 1px 10px 1px #3164217e;
+    border: 1px solid #3164215d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
