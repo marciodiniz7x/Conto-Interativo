@@ -7,6 +7,8 @@
 body {
     font-family: 'Goudy Bookletter 1911', serif;
     font-size: 20px;
+    background-color: var(--bg-cor);
+    color: var(--txt-cor);
 }
 h1 {
     font-family: 'Mystery Quest';
@@ -14,6 +16,21 @@ h1 {
 
 p {
     text-indent: 5ch;
+}
+
+:root {
+    
+    /* Tema claro */
+    --bg-cor:white;
+    --txt-cor:black;
+    --btn-cor: white;
+    
+
+    /* Tema escuro */
+    /* --bg-cor:#555;
+    --txt-cor:white;
+    --btn-cor: #2b2a2e; */
+
 }
 
 .capa {
@@ -68,7 +85,7 @@ p {
 
 .iniciar-leitura {
     margin-top: 50%;
-    background-color: #2A603A;
+    background-color: #397445;
     color: wheat;
     font-family: 'Goudy Bookletter 1911', serif;
     box-shadow: 1px 1px 10px 1px black;
