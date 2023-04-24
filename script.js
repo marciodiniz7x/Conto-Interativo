@@ -27,6 +27,7 @@ capa.appendChild(gooEyes);
 // Audios
 const music = new Audio('audio/awaken.mp3');
 const magicTransition01 = new Audio('audio/magic-transition01.mp3');
+const pageFlip = new Audio('audio/page-flip.mp3');
 
 // Tocar e pausar música tema
 function tocarMusica() {
@@ -78,7 +79,7 @@ function iniciarCapa() {
 
     tocarMusica();
     animarCapa();
-    
+
 }
 
 iniciarLeitura.addEventListener('click', () => {
@@ -117,10 +118,11 @@ iniciarLeitura.addEventListener('click', () => {
 
 voltarCapa.addEventListener('click', ()  => {
 
+    pageFlip.play();
     capa.classList.remove('sumir');
     capa.classList.add('blurin');
     page01.classList.add('sumir');
     animarCapa();
     tocarMusica();
-
+    
 })
