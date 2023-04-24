@@ -169,4 +169,8 @@ voltarCapa.addEventListener('click', ()  => {
     animarCapa();
     tocarMusica();
     
-})
+});
+
+// Textos
+
+const p1 = document.querySelector('.p1');
