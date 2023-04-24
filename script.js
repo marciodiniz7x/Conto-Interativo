@@ -109,6 +109,7 @@ iniciarLeitura.addEventListener('click', () => {
         page01.classList.remove('sumir');
         page01.classList.add('blurin');
         setTimeout(() => {
+            pageFlip.play();
             capa.classList.remove('blurout');
             desligarCapa();
         }, 200);
