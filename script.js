@@ -123,8 +123,6 @@ const funcaoClarear = () => {
 iniciarLeitura.addEventListener("mouseover", funcaoEscurecer);
 iniciarLeitura.addEventListener('mouseout', funcaoClarear);
 
-
-
 iniciarLeitura.addEventListener('click', () => {
 
     magicTransition01.play();
@@ -186,6 +184,13 @@ voltarCapa.addEventListener('click', ()  => {
 //     $(".p002").load("textos/p002.txt");
 // });
 
+// const p003 = document.createElement('p');
+// p003.classList.add('p003');
+// $(document).ready(function() {
+//     $(".p003").load("textos/p003.txt");
+// });
+
 // // Adicionando os textos child
 // conteudo.appendChild(p001);
 // conteudo.appendChild(p002);
+// conteudo.appendChild(p003);
