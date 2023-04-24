@@ -41,12 +41,11 @@ function pausarMusica() {
     music.play();
 }
 
-function iniciarCapa() {
-    
-    // Adiciona animação para piscar os olhos
-    gooEyes.classList.add('piscar');
+// Adiciona animação para piscar os olhos
+gooEyes.classList.add('piscar');
 
-    tocarMusica();
+// Animações ao iniciar a capa
+function animarCapa() {
 
     capa.classList.add('blurin');
     setTimeout(() => {
@@ -57,10 +56,28 @@ function iniciarCapa() {
                 particles.classList.replace("sumir","glitch");
                 iniciarLeitura.classList.remove('sumir');
                 iniciarLeitura.classList.add('blurin');
-                capa.classList.remove('blurin');
+                
             }, 600);
         }, 400);
     }, 300);
+
+}
+
+// Desligar animações finalizadas
+function desligarCapa() {
+
+    capa.classList.remove('blurin');
+    titleDestaque.style.marginTop = "";
+    titleText.style.marginLeft = "";
+    iniciarLeitura.classList.add('sumir');
+    iniciarLeitura.classList.remove('blurin');
+
+}
+
+function iniciarCapa() {
+
+    tocarMusica();
+    animarCapa();
     
 }
 
@@ -92,6 +109,7 @@ iniciarLeitura.addEventListener('click', () => {
         page01.classList.add('blurin');
         setTimeout(() => {
             capa.classList.remove('blurout');
+            desligarCapa();
         }, 200);
     }, 2000);
     
@@ -102,9 +120,7 @@ voltarCapa.addEventListener('click', ()  => {
     capa.classList.remove('sumir');
     capa.classList.add('blurin');
     page01.classList.add('sumir');
+    animarCapa();
     tocarMusica();
-    setTimeout(() => {
-        capa.classList.remove('blurin');
-    }, 2000);
 
 })

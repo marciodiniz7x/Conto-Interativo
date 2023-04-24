@@ -6,11 +6,15 @@
 
 body {
     font-family: 'Goudy Bookletter 1911', serif;
+    font-size: 20px;
 }
 h1 {
     font-family: 'Mystery Quest';
 }
 
+p {
+    text-indent: 5ch;
+}
 
 .capa {
     overflow: hidden;
@@ -77,8 +81,9 @@ h1 {
     transition: 400ms;
 }
 .iniciar-leitura:hover {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: black;
+    box-shadow: 1px 1px 20px 5px aliceblue;
 }
 
 .goo-eyes {
@@ -145,6 +150,22 @@ h1 {
     color: wheat;
 }
 
+.page01 .conteudo {
+    margin-top: 20px;
+
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.page01 .p {
+    margin-left: -100px;
+}
+
+.page01 .conteudo .p1 {
+
+}
 
 /* Pré-classes */
 
