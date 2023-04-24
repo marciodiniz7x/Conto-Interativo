@@ -20,10 +20,18 @@ gooEyes.appendChild(olho2);
 
 capa.appendChild(gooEyes);
 
+// Audios
+const music = new Audio('audio/awaken.mp3');
+const magicTransition01 = new Audio('audio/magic-transition01.mp3');
+
 function iniciarCapa() {
     
     // Adiciona animação para piscar os olhos
     gooEyes.classList.add('piscar');
+
+    // Tocar tema
+    music.loop = true
+    music.play();
 
     capa.classList.add('blur-surgir');
     setTimeout(() => {
@@ -39,3 +47,15 @@ function iniciarCapa() {
     }, 300);
     
 }
+
+iniciarLeitura.addEventListener('click', () => {
+    magicTransition01.play();
+    const fadeOut = setInterval(() => {
+        if (music.volume > 0) {
+            music.volume -= 0.1;
+        } else {
+            music.pause();
+            clearInterval(fadeOut);
+        }
+    }, 100);
+})
