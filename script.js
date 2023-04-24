@@ -171,6 +171,21 @@ voltarCapa.addEventListener('click', ()  => {
     
 });
 
-// Textos
+// Livro
+// const conteudo = document.querySelector('.conteudo');
 
-const p1 = document.querySelector('.p1');
+// const p001 = document.createElement('span');
+// p001.classList.add('p001');
+// $(document).ready(function() {
+//     $(".p001").load("textos/p001.txt");
+// });
+
+// const p002 = document.createElement('p');
+// p002.classList.add('p002');
+// $(document).ready(function() {
+//     $(".p002").load("textos/p002.txt");
+// });
+
+// // Adicionando os textos child
+// conteudo.appendChild(p001);
+// conteudo.appendChild(p002);

@@ -16,6 +16,7 @@ h1 {
 
 p {
     text-indent: 5ch;
+    margin-left: 0px;
 }
 
 :root {
@@ -179,9 +180,6 @@ p {
     
 }
 
-.page01 .p {
-    margin-left: -100px;
-}
 
 .page01 .conteudo .p1 {
 
