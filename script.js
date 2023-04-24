@@ -1,9 +1,14 @@
-// Seletores
+// Seleciona elementos criados
 const capa = document.querySelector('.capa');
 const particles = document.querySelector('.particles');
 const titleDestaque = document.querySelector('.destacar-title');
 const titleText = document.querySelector('.title');
 const page01 = document.querySelector('.page01');
+
+// Cria novos elementos dinamicamente
+const escurecer = document.createElement('div');
+escurecer.classList.add('escurecer');
+// capa.appendChild(escurecer); *será adicionado ao pai com ações do usuário e fará o livro escurecer//
 
 // Botões
 const iniciarLeitura = document.querySelector('.iniciar-leitura');
@@ -28,11 +33,13 @@ capa.appendChild(gooEyes);
 const music = new Audio('audio/awaken.mp3');
 const magicTransition01 = new Audio('audio/magic-transition01.mp3');
 const pageFlip = new Audio('audio/page-flip.mp3');
+const mouseover = new Audio('audio/mouseover.mp3');
 
 // Tocar e pausar música tema
 function tocarMusica() {
     music.volume = 1;
     music.currentTime = 0;
+    music.autoplay = true;
     music.loop = true
     music.play();
 }
@@ -40,6 +47,15 @@ function tocarMusica() {
 function pausarMusica() {
     music.volume = 0;
     music.play();
+}
+
+// Tocar e pausar efeitos sonoros
+function playMouseOver() {
+    mouseover.pause();
+    mouseover.currentTime = 0;
+    setTimeout(() => {
+        mouseover.play();
+    }, 50);
 }
 
 // Adiciona animação para piscar os olhos
@@ -75,12 +91,39 @@ function desligarCapa() {
 
 }
 
+iniciarLeitura.focus()
+
 function iniciarCapa() {
 
     tocarMusica();
     animarCapa();
 
 }
+
+// Escurece tela ao passar o mouse no botão
+const funcaoEscurecer = () => {
+
+    capa.appendChild(escurecer);
+    setTimeout(() => {
+        escurecer.style.opacity = "0.5";
+    }, 10);
+    playMouseOver();
+
+}
+
+const funcaoClarear = () => {
+
+    escurecer.style.opacity = "0";
+    setTimeout(() => {
+        capa.removeChild(escurecer);
+    }, 100);
+
+}
+
+iniciarLeitura.addEventListener("mouseover", funcaoEscurecer);
+iniciarLeitura.addEventListener('mouseout', funcaoClarear);
+
+
 
 iniciarLeitura.addEventListener('click', () => {
 
