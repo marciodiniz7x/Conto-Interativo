@@ -289,6 +289,16 @@ p {
     0% {
         opacity: 0;
     }
+    2% {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: 1;
+    }
+    4% {
+        opacity: 0;
+    }    
 
     /* piscada 1 */
     38% {
@@ -342,7 +352,7 @@ p {
     }
 
     100% {
-        opacity: 0;
+        opacity:0;
     }
 }
 
