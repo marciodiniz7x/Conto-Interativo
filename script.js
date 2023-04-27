@@ -190,7 +190,14 @@ voltarCapa.addEventListener('click', ()  => {
 //     $(".p003").load("textos/p003.txt");
 // });
 
+// const p004 = document.createElement('p');
+// p004.classList.add('p004');
+// $(document).ready(function() {
+//     $(".p004").load("textos/p004.txt");
+// });
+
 // // Adicionando os textos child
 // conteudo.appendChild(p001);
 // conteudo.appendChild(p002);
 // conteudo.appendChild(p003);
+// conteudo.appendChild(p004);
