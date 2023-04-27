@@ -172,17 +172,38 @@ voltarCapa.addEventListener('click', ()  => {
 // Livro
 const conteudo = document.querySelector('.conteudo');
 
+const p000 = document.createElement('p');
+p000.classList.add('p000');
+$(document).ready(function() {
+    $(".p000").load("textos/p000.txt");
+});
+
 const p001 = document.createElement('span');
 p001.classList.add('p001');
 $(document).ready(function() {
     $(".p001").load("textos/p001.txt");
 });
 
-const p002 = document.createElement('p');
-p002.classList.add('p002');
-$(document).ready(function() {
-    $(".p002").load("textos/p002.txt");
-});
+// Escolha 1 - Create
+const escolha001 = document.createElement('button');
+escolha001.classList.add('escolha001-a');
+escolha001.innerText = "Olhar ao redor";
+
+// Escolha 1 - Click
+let p002Gerado = false;
+const gerarP002 = () => {
+    if (!p002Gerado) {
+        const p002 = document.createElement('p');
+        p002.classList.add('p002', 'blurin');
+        $(document).ready(function() {
+            $(".p002").load("textos/p002.txt");
+        });
+        conteudo.appendChild(p002);
+        p002Gerado = true;
+    }
+}
+escolha001.addEventListener('click', gerarP002);
+
 
 const p003 = document.createElement('p');
 p003.classList.add('p003');
@@ -196,8 +217,15 @@ $(document).ready(function() {
     $(".p004").load("textos/p004.txt");
 });
 
-// Adicionando os textos child
+// Adicionando os textos child e Escolhas
+// conteudo.appendChild(p000);
 conteudo.appendChild(p001);
-conteudo.appendChild(p002);
-conteudo.appendChild(p003);
-conteudo.appendChild(p004);
+// Escolha 1 - Add
+conteudo.appendChild(escolha001);
+
+
+// conteudo.appendChild(p003);
+// conteudo.appendChild(p004);
+
+
+// Ações Escolhas

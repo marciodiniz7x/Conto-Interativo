@@ -19,6 +19,12 @@ p {
     margin-left: 0px;
 }
 
+.capitular {
+    font-size: 2.5em;
+    font-family: 'Mystery Quest';
+    line-height: 1;
+}
+
 :root {
     
     /* Tema claro */
@@ -181,6 +187,27 @@ p {
 
 .page01 .conteudo .p1 {
 
+}
+
+.escolha001-a {
+    background-color: rgb(38, 43, 39);
+    color: wheat;
+    
+    font-family: 'Goudy Bookletter 1911', serif;
+    box-shadow: 1px 1px 10px 1px black;
+    padding: 10px 20px 10px 20px;
+
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 600ms;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.escolha001-a:hover {
+    background-color: white;
+    color: black;
 }
 
 /* Pré-classes */
