@@ -1,0 +1,3 @@
+Olá, eu sou um exemplo de parágrafo. <br>
+Eu sou um exemplo de texto. Um exemplo de texto mais longo, para testar as margens e bordas da página.
+<p>— Eu sou um exemplo de diálogo!</p>
