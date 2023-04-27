@@ -170,34 +170,34 @@ voltarCapa.addEventListener('click', ()  => {
 });
 
 // Livro
-// const conteudo = document.querySelector('.conteudo');
+const conteudo = document.querySelector('.conteudo');
 
-// const p001 = document.createElement('span');
-// p001.classList.add('p001');
-// $(document).ready(function() {
-//     $(".p001").load("textos/p001.txt");
-// });
+const p001 = document.createElement('span');
+p001.classList.add('p001');
+$(document).ready(function() {
+    $(".p001").load("textos/p001.txt");
+});
 
-// const p002 = document.createElement('p');
-// p002.classList.add('p002');
-// $(document).ready(function() {
-//     $(".p002").load("textos/p002.txt");
-// });
+const p002 = document.createElement('p');
+p002.classList.add('p002');
+$(document).ready(function() {
+    $(".p002").load("textos/p002.txt");
+});
 
-// const p003 = document.createElement('p');
-// p003.classList.add('p003');
-// $(document).ready(function() {
-//     $(".p003").load("textos/p003.txt");
-// });
+const p003 = document.createElement('p');
+p003.classList.add('p003');
+$(document).ready(function() {
+    $(".p003").load("textos/p003.txt");
+});
 
-// const p004 = document.createElement('p');
-// p004.classList.add('p004');
-// $(document).ready(function() {
-//     $(".p004").load("textos/p004.txt");
-// });
+const p004 = document.createElement('p');
+p004.classList.add('p004');
+$(document).ready(function() {
+    $(".p004").load("textos/p004.txt");
+});
 
-// // Adicionando os textos child
-// conteudo.appendChild(p001);
-// conteudo.appendChild(p002);
-// conteudo.appendChild(p003);
-// conteudo.appendChild(p004);
+// Adicionando os textos child
+conteudo.appendChild(p001);
+conteudo.appendChild(p002);
+conteudo.appendChild(p003);
+conteudo.appendChild(p004);
