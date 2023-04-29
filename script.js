@@ -245,7 +245,6 @@ const gerarP002 = () => {
         }
         }, 100);
 
-
         // setTimeout(() => {
         //     const p003 = document.createElement('p');
         //     p003.classList.add('p003', 'blurin');
