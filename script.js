@@ -238,7 +238,6 @@ const gerarP002 = () => {
         });
         conteudo.appendChild(p002);
 
-
         let i = 0;
         setInterval(function() {
         if (i <= texto.length) {
