@@ -120,6 +120,35 @@ const funcaoClarear = () => {
 
 }
 
+// Escolha 1 - Create
+let inicioCriado = false;
+const escolha001 = document.createElement('button');
+function iniciarPage01() {
+
+    setTimeout(() => {
+
+        // Gerar parágrafo inicial
+        const p001 = document.createElement('span');
+        p001.classList.add('p001', 'blurin');
+        $(document).ready(function() {
+            $(".p001").load("textos/p001.txt");
+        });
+        conteudo.appendChild(p001);
+
+        setTimeout(() => { 
+        
+        // Gerar botão de escolha
+        
+        escolha001.classList.add('escolha001-a', 'blurin');
+        escolha001.innerText = "Olhar ao redor";
+        conteudo.appendChild(escolha001);
+
+        }, 1000);
+
+    }, 1000);
+
+}
+
 iniciarLeitura.addEventListener("mouseover", funcaoEscurecer);
 iniciarLeitura.addEventListener('mouseout', funcaoClarear);
 
@@ -146,14 +175,24 @@ iniciarLeitura.addEventListener('click', () => {
     }, 200);
     capa.classList.add('blurout');
     setTimeout(() => {
+
         capa.classList.add("sumir");
         page01.classList.remove('sumir');
         page01.classList.add('blurin');
+
+        if (!inicioCriado) {
+            iniciarPage01();
+            inicioCriado = true;
+        }
+
         setTimeout(() => {
+
             pageFlip.play();
             capa.classList.remove('blurout');
             desligarCapa();
+
         }, 200);
+
     }, 2000);
     
 });
@@ -178,38 +217,50 @@ $(document).ready(function() {
     $(".p000").load("textos/p000.txt");
 });
 
-const p001 = document.createElement('span');
-p001.classList.add('p001');
-$(document).ready(function() {
-    $(".p001").load("textos/p001.txt");
-});
-
-// Escolha 1 - Create
-const escolha001 = document.createElement('button');
-escolha001.classList.add('escolha001-a');
-escolha001.innerText = "Olhar ao redor";
-
 // Escolha 1 - Click
 let p002Gerado = false;
 const gerarP002 = () => {
     if (!p002Gerado) {
+
+        escolha001.classList.add('escolhido', 'clicado');
         const p002 = document.createElement('p');
         p002.classList.add('p002', 'blurin');
         $(document).ready(function() {
-            $(".p002").load("textos/p002.txt");
+            $(".p002").load("textos/p002.txt", () => {
+                var texto = $(".p002").text();
+                var i = 0;
+                setInterval(function() {
+                    if (i <= texto.length) {
+                        $(".p002").text(texto.slice(0, i++));
+                    }
+                }, 10);
+            });
         });
         conteudo.appendChild(p002);
+
+
+        let i = 0;
+        setInterval(function() {
+        if (i <= texto.length) {
+            p002.textContent = texto.slice(0, i++);
+        }
+        }, 100);
+
+
+        // setTimeout(() => {
+        //     const p003 = document.createElement('p');
+        //     p003.classList.add('p003', 'blurin');
+        //     $(document).ready(function() {
+        //         $(".p003").load("textos/p003.txt");
+        //     });
+        //     conteudo.appendChild(p003);
+        // }, 1000);
+        
         p002Gerado = true;
     }
 }
 escolha001.addEventListener('click', gerarP002);
 
-
-const p003 = document.createElement('p');
-p003.classList.add('p003');
-$(document).ready(function() {
-    $(".p003").load("textos/p003.txt");
-});
 
 const p004 = document.createElement('p');
 p004.classList.add('p004');
@@ -219,12 +270,10 @@ $(document).ready(function() {
 
 // Adicionando os textos child e Escolhas
 // conteudo.appendChild(p000);
-conteudo.appendChild(p001);
-// Escolha 1 - Add
-conteudo.appendChild(escolha001);
 
 
-// conteudo.appendChild(p003);
+
+// 
 // conteudo.appendChild(p004);
 
 
