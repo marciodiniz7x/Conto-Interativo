@@ -9,6 +9,7 @@ body {
     font-size: 20px;
     background-color: var(--bg-cor);
     color: var(--txt-cor);
+    line-height: 1.6;
 }
 h1 {
     font-family: 'Mystery Quest';
@@ -17,6 +18,7 @@ h1 {
 p {
     text-indent: 5ch;
     margin-left: 0px;
+    
 }
 
 .capitular {
@@ -190,13 +192,11 @@ p {
 }
 
 .escolha001-a {
-    background-color: rgb(38, 43, 39);
-    color: wheat;
-    
+    background-color: white;
+    color: black;
     font-family: 'Goudy Bookletter 1911', serif;
     box-shadow: 1px 1px 10px 1px black;
     padding: 10px 20px 10px 20px;
-
     border: none;
     border-radius: 5px;
     font-size: 20px;
@@ -206,8 +206,13 @@ p {
     margin-bottom: 20px;
 }
 .escolha001-a:hover {
-    background-color: white;
-    color: black;
+    background-color: #262b27;
+    color: wheat;
+}
+
+.escolhido {
+    background-color: #262b27;
+    color: wheat;
 }
 
 /* Pré-classes */
@@ -247,6 +252,21 @@ p {
 .dissolver {
     position: relative;
     animation: dissolver 1s forwards;
+}
+
+.clicado {
+    animation: clicado 400ms;
+    pointer-events: none;
+    background-color: #b8b8b8;
+    box-shadow: 1px 1px 10px 2px rgb(141, 144, 158);
+    color: white;
+}
+.nao-clicado {
+    
+    pointer-events: none;
+    background-color: #dddddf;
+    box-shadow: 1px 1px 10px 2px rgb(226, 226, 228);
+    color: white;
 }
 
 /* Animações */
@@ -390,5 +410,17 @@ p {
     100% {
       opacity: 0;
       transform: translateY(50%);
+    }
+}
+
+@keyframes clicado {
+    0% {
+        filter: blur(0px);
+    }
+    50% {
+        filter: blur(15px);
+    }
+    100% {
+        filter: blur(0px);
     }
 }
