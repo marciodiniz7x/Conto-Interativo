@@ -253,6 +253,8 @@ const gerarP002 = () => {
             conteudo.appendChild(escolhasBox2);
 
             // Cria os botões de escolha 2 dentro da Flexbox
+
+            // Escolha 2a
             const escolha002a = document.createElement('button');
             escolha002a.classList.add('escolhas', 'escolha002a', 'blurin');
             escolha002a.innerText = "Ter esperança";
@@ -264,6 +266,56 @@ const gerarP002 = () => {
             escolha002b.innerText = "Lamentar-se";
             escolhasBox2.appendChild(escolha002b);
 
+            // Evento de clique em cada botão
+            let p003Gerado = false;
+            
+            const gerarP003a = () => {
+                if (!p003Gerado) {
+
+                    const p003 = document.createElement('p');
+                    p003.classList.add('p003', 'blurin');
+                    $(document).ready(function() {
+                        $(".p003").load("textos/p003a.txt", () => {
+                            var texto = $(".p003").text();
+                            var i = 0;
+                            setInterval(function() {
+                                if (i <= texto.length) {
+                                    $(".p003").text(texto.slice(0, i++));
+                                }
+                            }, 10);
+                        });
+                    });
+                    conteudo.appendChild(p003);
+                    p003Gerado = true;
+            
+                }
+            }
+
+            const gerarP003b = () => {
+                if (!p003Gerado) {
+
+                    const p003 = document.createElement('p');
+                    p003.classList.add('p003', 'blurin');
+                    $(document).ready(function() {
+                        $(".p003").load("textos/p003b.txt", () => {
+                            var texto = $(".p003").text();
+                            var i = 0;
+                            setInterval(function() {
+                                if (i <= texto.length) {
+                                    $(".p003").text(texto.slice(0, i++));
+                                }
+                            }, 10);
+                        });
+                    });
+                    conteudo.appendChild(p003);
+                    p003Gerado = true;
+            
+                }
+            }
+
+            escolha002a.addEventListener('click', gerarP003a);
+            escolha002b.addEventListener('click', gerarP003b);
+
         }, 5000);
 
     }
@@ -272,6 +324,9 @@ const gerarP002 = () => {
 escolha001.addEventListener('click', gerarP002);
 
 // Escolha 2 click
+
+
+
 
 
         // setTimeout(() => {
