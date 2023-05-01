@@ -187,15 +187,17 @@ p {
     
 }
 
-.page01 .conteudo .p1 {
-
+.escolhas-box2 {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }
 
-.escolha001-a {
-    background-color: white;
+.escolhas {
+    background-color: #f5f5f5;
     color: black;
     font-family: 'Goudy Bookletter 1911', serif;
-    box-shadow: 1px 1px 10px 1px black;
+    box-shadow: 0.8px 0.8px 10px 1px rgba(0, 0, 0, 0.699);
     padding: 10px 20px 10px 20px;
     border: none;
     border-radius: 5px;
@@ -205,7 +207,7 @@ p {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.escolha001-a:hover {
+.escolhas:hover {
     background-color: #262b27;
     color: wheat;
 }

@@ -120,35 +120,7 @@ const funcaoClarear = () => {
 
 }
 
-// Escolha 1 - Create
-let inicioCriado = false;
-const escolha001 = document.createElement('button');
-function iniciarPage01() {
-
-    setTimeout(() => {
-
-        // Gerar parágrafo inicial
-        const p001 = document.createElement('span');
-        p001.classList.add('p001', 'blurin');
-        $(document).ready(function() {
-            $(".p001").load("textos/p001.txt");
-        });
-        conteudo.appendChild(p001);
-
-        setTimeout(() => { 
-        
-        // Gerar botão de escolha
-        
-        escolha001.classList.add('escolha001-a', 'blurin');
-        escolha001.innerText = "Olhar ao redor";
-        conteudo.appendChild(escolha001);
-
-        }, 1000);
-
-    }, 1000);
-
-}
-
+// Botão iniciar livro
 iniciarLeitura.addEventListener("mouseover", funcaoEscurecer);
 iniciarLeitura.addEventListener('mouseout', funcaoClarear);
 
@@ -197,6 +169,7 @@ iniciarLeitura.addEventListener('click', () => {
     
 });
 
+// Botão voltar à capa do livro
 voltarCapa.addEventListener('click', ()  => {
 
     pageFlip.play();
@@ -208,18 +181,42 @@ voltarCapa.addEventListener('click', ()  => {
     
 });
 
-// Livro
+// Gera container principai para conteúdo do livro
 const conteudo = document.querySelector('.conteudo');
 
-const p000 = document.createElement('p');
-p000.classList.add('p000');
-$(document).ready(function() {
-    $(".p000").load("textos/p000.txt");
-});
+// Inicia página 01
+let inicioCriado = false;
+const escolha001 = document.createElement('button');
+function iniciarPage01() {
 
-// Escolha 1 - Click
+    setTimeout(() => {
+
+        // Gerar parágrafo inicial
+        const p001 = document.createElement('span');
+        p001.classList.add('p001', 'blurin');
+        $(document).ready(function() {
+            $(".p001").load("textos/p001.txt");
+        });
+        conteudo.appendChild(p001);
+
+        setTimeout(() => { 
+        
+        // Gerar botão de escolha
+        
+        escolha001.classList.add('escolhas', 'escolha001a', 'blurin');
+        escolha001.innerText = "Olhar ao redor";
+        conteudo.appendChild(escolha001);
+
+        }, 1000);
+
+    }, 1000);
+
+}
+
+// Escolha 1 - Click - Gera Parágrafo 002
 let p002Gerado = false;
 const gerarP002 = () => {
+
     if (!p002Gerado) {
 
         escolha001.classList.add('escolhido', 'clicado');
@@ -244,6 +241,38 @@ const gerarP002 = () => {
             p002.textContent = texto.slice(0, i++);
         }
         }, 100);
+        
+        p002Gerado = true;
+
+        // Gera botões escolha 2
+        setTimeout(() => {
+
+            // Flexbox opções de escolha
+            const escolhasBox2 = document.createElement('div');
+            escolhasBox2.classList.add('escolhas-box2');
+            conteudo.appendChild(escolhasBox2);
+
+            // Cria os botões de escolha 2 dentro da Flexbox
+            const escolha002a = document.createElement('button');
+            escolha002a.classList.add('escolhas', 'escolha002a', 'blurin');
+            escolha002a.innerText = "Ter esperança";
+            escolhasBox2.appendChild(escolha002a);
+
+            // Escolha 2b
+            const escolha002b = document.createElement('button');
+            escolha002b.classList.add('escolhas', 'escolha002b', 'blurin');
+            escolha002b.innerText = "Lamentar-se";
+            escolhasBox2.appendChild(escolha002b);
+
+        }, 5000);
+
+    }
+
+}
+escolha001.addEventListener('click', gerarP002);
+
+// Escolha 2 click
+
 
         // setTimeout(() => {
         //     const p003 = document.createElement('p');
@@ -253,18 +282,14 @@ const gerarP002 = () => {
         //     });
         //     conteudo.appendChild(p003);
         // }, 1000);
-        
-        p002Gerado = true;
-    }
-}
-escolha001.addEventListener('click', gerarP002);
-
 
 const p004 = document.createElement('p');
 p004.classList.add('p004');
 $(document).ready(function() {
     $(".p004").load("textos/p004.txt");
 });
+
+
 
 // Adicionando os textos child e Escolhas
 // conteudo.appendChild(p000);
