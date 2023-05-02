@@ -81,6 +81,14 @@ p {
     color: #25190e;
 }
 
+.fim-do-conto {
+    font-size: 100px;
+    transition: 400ms;
+    font-family: 'Mystery Quest';
+    margin-top: 10%;
+}
+
+
 .capa .destacar-title {
     margin-top: -40%;
     font-size: 100px;
@@ -140,7 +148,7 @@ p {
 }
 
 /* Pag01 */
-.page01 {
+.pages {
     overflow: hidden;
     margin-top: -80px;
     width: 705px;
@@ -157,7 +165,7 @@ p {
     perspective: 1000px;
 }
 
-.page01 header {
+.pages header {
     padding: 20px;
 }
 .voltar-capa {
@@ -182,6 +190,15 @@ p {
     margin-top: 20px;
 
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.page02 .conteudo-page02 {
+    margin-top: 20px;
+
+    width: 91%;
     display: flex;
     flex-direction: column;
     
@@ -217,6 +234,25 @@ p {
     color: wheat;
 }
 
+.botao-reset {
+    margin-top: 100px;
+    background-color: rgb(247, 247, 247);
+    color: black;
+    font-family: 'Goudy Bookletter 1911', serif;
+    box-shadow: 1px 1px 10px 1px rgb(104, 114, 101);
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 600ms;
+}
+.botao-reset:hover {
+    background-color: rgb(38, 43, 39);
+    color: wheat;
+}
+
 /* Pré-classes */
 
 .escurecer {
@@ -234,12 +270,20 @@ p {
     display: none;
 }
 
+.desaparecer {
+    display: none;
+}
+
 .blurin {
     animation: blurin 500ms linear;
 }
 
 .blurout {
     animation: blurout 2000ms linear forwards;
+}
+
+.blurout-fast {
+    animation: blurout 1000ms linear forwards;
 }
 
 /* Pré-classes com animação */

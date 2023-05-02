@@ -3,7 +3,9 @@ const capa = document.querySelector('.capa');
 const particles = document.querySelector('.particles');
 const titleDestaque = document.querySelector('.destacar-title');
 const titleText = document.querySelector('.title');
+const pages = document.querySelector('.pages');
 const page01 = document.querySelector('.page01');
+const page02 = document.querySelector('.page02');
 
 // Cria novos elementos dinamicamente
 const escurecer = document.createElement('div');
@@ -91,7 +93,7 @@ function desligarCapa() {
 
 }
 
-iniciarLeitura.focus()
+
 
 function iniciarCapa() {
 
@@ -116,6 +118,25 @@ const funcaoClarear = () => {
     escurecer.style.opacity = "0";
     setTimeout(() => {
         capa.removeChild(escurecer);
+    }, 100);
+
+}
+
+const funcaoEscurecerPage = () => {
+
+    page02.appendChild(escurecer);
+    setTimeout(() => {
+        escurecer.style.opacity = "0.5";
+    }, 10);
+    playMouseOver();
+
+}
+
+const funcaoClarearPage = () => {
+
+    escurecer.style.opacity = "0";
+    setTimeout(() => {
+        page02.removeChild(escurecer);
     }, 100);
 
 }
@@ -170,19 +191,27 @@ iniciarLeitura.addEventListener('click', () => {
 });
 
 // Botão voltar à capa do livro
-voltarCapa.addEventListener('click', ()  => {
+const botoesVoltarCapa = document.querySelectorAll('.voltar-capa');
 
-    pageFlip.play();
-    capa.classList.remove('sumir');
-    capa.classList.add('blurin');
-    page01.classList.add('sumir');
-    animarCapa();
-    tocarMusica();
-    
+// Para funcionar em todas páginas
+botoesVoltarCapa.forEach(voltarCapa => {
+
+    voltarCapa.addEventListener('click', ()  => {
+
+        pageFlip.play();
+        capa.classList.remove('sumir');
+        capa.classList.add('blurin');
+        pages.classList.add('sumir');
+        animarCapa();
+        tocarMusica();
+        
+    });
+
 });
 
 // Gera container principai para conteúdo do livro
 const conteudo = document.querySelector('.conteudo');
+const conteudoPage02 = document.querySelector('.conteudo-page02');
 
 // Inicia página 01
 let inicioCriado = false;
@@ -276,45 +305,141 @@ const gerarP002 = () => {
                     p003.classList.add('p003', 'blurin');
                     $(document).ready(function() {
                         $(".p003").load("textos/p003a.txt", () => {
-                            var texto = $(".p003").text();
+                            var texto = $(".p003").html();
                             var i = 0;
                             setInterval(function() {
                                 if (i <= texto.length) {
-                                    $(".p003").text(texto.slice(0, i++));
+                                    $(".p003").html(texto.slice(0, i++));
                                 }
                             }, 10);
                         });
                     });
                     conteudo.appendChild(p003);
                     p003Gerado = true;
+                    escolha002a.classList.add('clicado', 'escolhido');
+                    escolha002b.classList.add('nao-clicado');
+
+                    setTimeout(gerarBotao003, 6000); // Gera botao de escolha 3
             
                 }
             }
 
             const gerarP003b = () => {
                 if (!p003Gerado) {
-
+                  
                     const p003 = document.createElement('p');
                     p003.classList.add('p003', 'blurin');
                     $(document).ready(function() {
                         $(".p003").load("textos/p003b.txt", () => {
-                            var texto = $(".p003").text();
+                            var texto = $(".p003").html();
                             var i = 0;
                             setInterval(function() {
                                 if (i <= texto.length) {
-                                    $(".p003").text(texto.slice(0, i++));
+                                    $(".p003").html(texto.slice(0, i++));
                                 }
                             }, 10);
                         });
                     });
                     conteudo.appendChild(p003);
                     p003Gerado = true;
-            
+                    escolha002b.classList.add('clicado', 'escolhido');
+                    escolha002a.classList.add('nao-clicado');
+
+                    setTimeout(gerarBotao003, 6000); // Gera botao de escolha 3
+                    
+
                 }
             }
 
+            // Eventos ao clicar em cada botão
             escolha002a.addEventListener('click', gerarP003a);
             escolha002b.addEventListener('click', gerarP003b);
+
+            // Função para ser chamada por um timeout e gerar escolha003
+            const gerarBotao003 = () => {
+                
+                    const escolha003 = document.createElement('button');
+                    escolha003.classList.add('escolhas', 'escolha003', 'blurin');
+                    escolha003.innerText = 'Seguir a voz';
+                    conteudo.appendChild(escolha003);
+
+                    // Click na Escolha 3
+                    escolha003.onclick = () => {
+                        
+                        page01.classList.add('sumir');
+                        page02.classList.remove('sumir');
+                        page02.classList.add('blurin');
+
+                        
+                        
+                        setTimeout(() => {
+
+                            pageFlip.play();
+                            
+                            let p004Gerado = false;
+                                       
+                            if (!p004Gerado) {
+                                page01.classList.add('desaparecer');
+                                const p004 = document.createElement('p');
+                                p004.classList.add('p004', 'blurin');
+                                $(document).ready(function() {
+                                    $(".p004").load("textos/p004.txt", () => {
+                                        var texto = $(".p004").html();
+                                        var i = 0;
+                                        setInterval(function() {
+                                            if (i <= texto.length) {
+                                                $(".p004").html(texto.slice(0, i++));
+                                            }
+                                        }, 10);
+                                    });
+                                });
+                                conteudoPage02.appendChild(p004);
+                                p004Gerado = true;
+                                escolha002a.classList.add('clicado', 'escolhido');
+                                escolha002b.classList.add('nao-clicado');
+
+                                setTimeout(() => {
+
+                                    const fimDoConto = document.createElement('div');
+                                    fimDoConto.classList.add('fim-do-conto', 'blurin');
+                                    fimDoConto.innerHTML = 'Fim';
+                                    conteudoPage02.appendChild(fimDoConto);
+
+                                    setTimeout(() => {
+                                        const p005 = document.createElement('p');
+                                        p005.classList.add('p005', 'blurin');
+                                        $(document).ready(function() {
+                                            $(".p005").load("textos/p005.txt");
+                                        });
+                                        conteudoPage02.appendChild(p005);
+                                        setTimeout(() => {
+                                            const botaoReset = document.createElement('button');
+                                            botaoReset.classList.add('botao-reset', 'blurin');
+                                            botaoReset.innerText = 'Resetar conto';
+                                            conteudoPage02.appendChild(botaoReset);
+                                            botaoReset.addEventListener('mouseover', funcaoEscurecerPage);
+                                            botaoReset.addEventListener('mouseout', funcaoClarearPage);
+                                            botaoReset.onclick = () => {
+                                                page02.classList.add('blurout-fast');
+                                                setTimeout(() => {
+                                                    location.reload();
+                                                }, 1500);
+                                            }
+                                        }, 1000);
+                                    }, 1000);
+                                }, 4000);
+                        
+                            }
+                            
+                            setTimeout(() => {
+
+                            }, 400);
+
+                        }, 200);
+                        
+                    }
+               
+            }
 
         }, 5000);
 
@@ -323,36 +448,5 @@ const gerarP002 = () => {
 }
 escolha001.addEventListener('click', gerarP002);
 
-// Escolha 2 click
 
 
-
-
-
-        // setTimeout(() => {
-        //     const p003 = document.createElement('p');
-        //     p003.classList.add('p003', 'blurin');
-        //     $(document).ready(function() {
-        //         $(".p003").load("textos/p003.txt");
-        //     });
-        //     conteudo.appendChild(p003);
-        // }, 1000);
-
-const p004 = document.createElement('p');
-p004.classList.add('p004');
-$(document).ready(function() {
-    $(".p004").load("textos/p004.txt");
-});
-
-
-
-// Adicionando os textos child e Escolhas
-// conteudo.appendChild(p000);
-
-
-
-// 
-// conteudo.appendChild(p004);
-
-
-// Ações Escolhas
