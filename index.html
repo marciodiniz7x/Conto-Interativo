@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Biblioteca Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+    <!-- BIblioteca jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Fonte Mistery Quest -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap" rel="stylesheet">
+
+    <!-- Fonte Bookletter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Mystery+Quest&display=swap" rel="stylesheet">
+
+    <!-- CSS & JavaScript -->
+    <link rel="stylesheet" href="style.css">
+    <script src="escolhas.js" defer></script>
+
+    <title>Conto Interativo</title>
+</head>
+<body onload="iniciarCapa()">
+
+    <div class="capa">
+        
+        <h1><span class="destacar-title">Goo</span> <span class="title">O Lamento da Floresta</span></h1>
+
+        <input class="iniciar-leitura sumir" type="button" value="Iniciar">
+
+        <div class="particles sumir"></div>
+    </div>
+
+    <div class="pages page01 sumir">
+        <header>
+            <input class="voltar-capa" type="button" value="Voltar à Capa">
+        </header>
+        <div class="conteudo">
+           <!-- Conteúdo gerado dinamicamente -->
+        </div>
+    </div>
+
+    <div class="pages page02 sumir">
+        <header>
+            <input class="voltar-capa" type="button" value="Voltar à Capa">
+        </header>
+        <div class="conteudo-page02">
+            <!-- Conteúdo gerado dinamicamente -->
+         </div>
+    </div>
+    
+</body>
+</html>
