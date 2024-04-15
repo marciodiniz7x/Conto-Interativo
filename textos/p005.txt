@@ -1,5 +1,5 @@
 Aqui termina essa breve demonstração do conto.
 <p>
-O foco aqui era apenas testar as funcionalizades interativas do projeto, onde possíveis paginas seguintes não teriam mais o que agregar em termos de novas funcionalidade.
+O foco aqui era apenas testar as funcionalizades interativas do projeto, onde possíveis paginas seguintes não teriam mais o que agregar em termos de novas funcionalidades.
 </p>
 
