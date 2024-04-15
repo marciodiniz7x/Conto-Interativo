@@ -36,6 +36,7 @@ const music = new Audio('audio/awaken.mp3');
 const magicTransition01 = new Audio('audio/magic-transition01.mp3');
 const pageFlip = new Audio('audio/page-flip.mp3');
 const mouseover = new Audio('audio/mouseover.mp3');
+const escolhasSom = new Audio('audio/touch.mp3');
 
 // Tocar e pausar música tema
 function tocarMusica() {
@@ -60,6 +61,16 @@ function playMouseOver() {
     }, 50);
 }
 
+function playEscolhasSom() {
+    escolhasSom.pause();
+    escolhasSom.currentTime = 0;
+    escolhasSom.volume = 1;
+    setTimeout(() => {
+        escolhasSom.play();
+    }, 50);
+
+}
+
 // Adiciona animação para piscar os olhos
 gooEyes.classList.add('piscar');
 
@@ -72,10 +83,10 @@ function animarCapa() {
         setTimeout(() => {
             titleText.style.marginLeft = "0px";
             setTimeout(() => {
-                particles.classList.replace("sumir","glitch");
+                particles.classList.replace("sumir", "glitch");
                 iniciarLeitura.classList.remove('sumir');
                 iniciarLeitura.classList.add('blurin');
-                
+
             }, 600);
         }, 400);
     }, 300);
@@ -185,7 +196,7 @@ iniciarLeitura.addEventListener('click', () => {
         }, 200);
 
     }, 2000);
-    
+
 });
 
 // Botão voltar à capa do livro
@@ -194,16 +205,22 @@ const botoesVoltarCapa = document.querySelectorAll('.voltar-capa');
 // Para funcionar em todas páginas
 botoesVoltarCapa.forEach(voltarCapa => {
 
-    voltarCapa.addEventListener('click', ()  => {
+    voltarCapa.addEventListener('click', () => {
 
         pageFlip.play();
+        playEscolhasSom();
+
         capa.classList.remove('sumir');
         capa.classList.add('blurin');
         pages.classList.add('sumir');
         animarCapa();
         tocarMusica();
-        
+
     });
+
+    voltarCapa.addEventListener('mouseover', () => {
+        playEscolhasSom();
+    })
 
 });
 
@@ -213,7 +230,8 @@ const conteudoPage02 = document.querySelector('.conteudo-page02');
 
 // Inicia página 01
 let inicioCriado = false;
-const escolha001 = document.createElement('button');
+
+var escolha001 = document.createElement('button');
 function iniciarPage01() {
 
     setTimeout(() => {
@@ -221,18 +239,22 @@ function iniciarPage01() {
         // Gerar parágrafo inicial
         const p001 = document.createElement('span');
         p001.classList.add('p001', 'blurin');
-        $(document).ready(function() {
+        $(document).ready(function () {
             $(".p001").load("textos/p001.txt");
         });
         conteudo.appendChild(p001);
 
-        setTimeout(() => { 
-        
-        // Gerar botão de escolha
-        
-        escolha001.classList.add('escolhas', 'escolha001a', 'blurin');
-        escolha001.innerText = "Olhar ao redor";
-        conteudo.appendChild(escolha001);
+        setTimeout(() => {
+
+            // Gerar botão de escolha
+
+            escolha001.classList.add('escolhas', 'escolha001a', 'blurin');
+            escolha001.innerText = "Olhar ao redor";
+            conteudo.appendChild(escolha001);
+
+            // Efeitos sonoros dos botões de escolha
+            escolha001.addEventListener('click', playEscolhasSom);
+            escolha001.addEventListener('mouseover', playEscolhasSom);
 
         }, 1000);
 
@@ -249,11 +271,11 @@ const gerarP002 = () => {
         escolha001.classList.add('escolhido', 'clicado');
         const p002 = document.createElement('p');
         p002.classList.add('p002', 'blurin');
-        $(document).ready(function() {
+        $(document).ready(function () {
             $(".p002").load("textos/p002.txt", () => {
                 var texto = $(".p002").text();
                 var i = 0;
-                setInterval(function() {
+                setInterval(function () {
                     if (i <= texto.length) {
                         $(".p002").text(texto.slice(0, i++));
                     }
@@ -263,12 +285,12 @@ const gerarP002 = () => {
         conteudo.appendChild(p002);
 
         let i = 0;
-        setInterval(function() {
-        if (i <= texto.length) {
-            p002.textContent = texto.slice(0, i++);
-        }
+        setInterval(function () {
+            if (i <= texto.length) {
+                p002.textContent = texto.slice(0, i++);
+            }
         }, 100);
-        
+
         p002Gerado = true;
 
         // Gera botões escolha 2
@@ -282,30 +304,37 @@ const gerarP002 = () => {
             // Cria os botões de escolha 2 dentro da Flexbox
 
             // Escolha 2a
-            const escolha002a = document.createElement('button');
+            var escolha002a = document.createElement('button');
             escolha002a.classList.add('escolhas', 'escolha002a', 'blurin');
             escolha002a.innerText = "Ter esperança";
             escolhasBox2.appendChild(escolha002a);
 
+
             // Escolha 2b
-            const escolha002b = document.createElement('button');
+            var escolha002b = document.createElement('button');
             escolha002b.classList.add('escolhas', 'escolha002b', 'blurin');
             escolha002b.innerText = "Lamentar-se";
             escolhasBox2.appendChild(escolha002b);
 
+            // Efeitos sonoros dos botões de escolha
+            escolha002a.addEventListener('click', playEscolhasSom);
+            escolha002a.addEventListener('mouseover', playEscolhasSom);
+            escolha002b.addEventListener('click', playEscolhasSom);
+            escolha002b.addEventListener('mouseover', playEscolhasSom);
+
             // Evento de clique em cada botão
             let p003Gerado = false;
-            
+
             const gerarP003a = () => {
                 if (!p003Gerado) {
 
                     const p003 = document.createElement('p');
                     p003.classList.add('p003', 'blurin');
-                    $(document).ready(function() {
+                    $(document).ready(function () {
                         $(".p003").load("textos/p003a.txt", () => {
                             var texto = $(".p003").html();
                             var i = 0;
-                            setInterval(function() {
+                            setInterval(function () {
                                 if (i <= texto.length) {
                                     $(".p003").html(texto.slice(0, i++));
                                 }
@@ -318,20 +347,20 @@ const gerarP002 = () => {
                     escolha002b.classList.add('nao-clicado');
 
                     setTimeout(gerarBotao003, 6000); // Gera botao de escolha 3
-            
+
                 }
             }
 
             const gerarP003b = () => {
                 if (!p003Gerado) {
-                  
+
                     const p003 = document.createElement('p');
                     p003.classList.add('p003', 'blurin');
-                    $(document).ready(function() {
+                    $(document).ready(function () {
                         $(".p003").load("textos/p003b.txt", () => {
                             var texto = $(".p003").html();
                             var i = 0;
-                            setInterval(function() {
+                            setInterval(function () {
                                 if (i <= texto.length) {
                                     $(".p003").html(texto.slice(0, i++));
                                 }
@@ -344,7 +373,7 @@ const gerarP002 = () => {
                     escolha002a.classList.add('nao-clicado');
 
                     setTimeout(gerarBotao003, 6000); // Gera botao de escolha 3
-                    
+
 
                 }
             }
@@ -355,88 +384,92 @@ const gerarP002 = () => {
 
             // Função para ser chamada por um timeout e gerar escolha003
             const gerarBotao003 = () => {
-                
-                    const escolha003 = document.createElement('button');
-                    escolha003.classList.add('escolhas', 'escolha003', 'blurin');
-                    escolha003.innerText = 'Seguir a voz';
-                    conteudo.appendChild(escolha003);
 
-                    // Click na Escolha 3
-                    escolha003.onclick = () => {
-                        
-                        page01.classList.add('sumir');
-                        page02.classList.remove('sumir');
-                        page02.classList.add('blurin');
+                var escolha003 = document.createElement('button');
+                escolha003.classList.add('escolhas', 'escolha003', 'blurin');
+                escolha003.innerText = 'Seguir a voz';
+                conteudo.appendChild(escolha003);
 
-                        
-                        
-                        setTimeout(() => {
+                // Efeitos sonoros dos botões de escolha
+                escolha003.addEventListener('click', playEscolhasSom);
+                escolha003.addEventListener('mouseover', playEscolhasSom);
 
-                            pageFlip.play();
-                            
-                            let p004Gerado = false;
-                                       
-                            if (!p004Gerado) {
-                                page01.classList.add('desaparecer');
-                                const p004 = document.createElement('p');
-                                p004.classList.add('p004', 'blurin');
-                                $(document).ready(function() {
-                                    $(".p004").load("textos/p004.txt", () => {
-                                        var texto = $(".p004").html();
-                                        var i = 0;
-                                        setInterval(function() {
-                                            if (i <= texto.length) {
-                                                $(".p004").html(texto.slice(0, i++));
-                                            }
-                                        }, 10);
-                                    });
+                // Click na Escolha 3
+                escolha003.onclick = () => {
+
+                    page01.classList.add('sumir');
+                    page02.classList.remove('sumir');
+                    page02.classList.add('blurin');
+
+
+
+                    setTimeout(() => {
+
+                        pageFlip.play();
+
+                        let p004Gerado = false;
+
+                        if (!p004Gerado) {
+                            page01.classList.add('desaparecer');
+                            const p004 = document.createElement('p');
+                            p004.classList.add('p004', 'blurin');
+                            $(document).ready(function () {
+                                $(".p004").load("textos/p004.txt", () => {
+                                    var texto = $(".p004").html();
+                                    var i = 0;
+                                    setInterval(function () {
+                                        if (i <= texto.length) {
+                                            $(".p004").html(texto.slice(0, i++));
+                                        }
+                                    }, 10);
                                 });
-                                conteudoPage02.appendChild(p004);
-                                p004Gerado = true;
-                                escolha002a.classList.add('clicado', 'escolhido');
-                                escolha002b.classList.add('nao-clicado');
+                            });
+                            conteudoPage02.appendChild(p004);
+                            p004Gerado = true;
+                            escolha002a.classList.add('clicado', 'escolhido');
+                            escolha002b.classList.add('nao-clicado');
 
-                                setTimeout(() => {
-
-                                    const fimDoConto = document.createElement('div');
-                                    fimDoConto.classList.add('fim-do-conto', 'blurin');
-                                    fimDoConto.innerHTML = 'Fim';
-                                    conteudoPage02.appendChild(fimDoConto);
-
-                                    setTimeout(() => {
-                                        const p005 = document.createElement('p');
-                                        p005.classList.add('p005', 'blurin');
-                                        $(document).ready(function() {
-                                            $(".p005").load("textos/p005.txt");
-                                        });
-                                        conteudoPage02.appendChild(p005);
-                                        setTimeout(() => {
-                                            const botaoReset = document.createElement('button');
-                                            botaoReset.classList.add('botao-reset', 'blurin');
-                                            botaoReset.innerText = 'Resetar conto';
-                                            conteudoPage02.appendChild(botaoReset);
-                                            botaoReset.addEventListener('mouseover', funcaoEscurecerPage);
-                                            botaoReset.addEventListener('mouseout', funcaoClarearPage);
-                                            botaoReset.onclick = () => {
-                                                page02.classList.add('blurout-fast');
-                                                setTimeout(() => {
-                                                    location.reload();
-                                                }, 1500);
-                                            }
-                                        }, 1000);
-                                    }, 1000);
-                                }, 4000);
-                        
-                            }
-                            
                             setTimeout(() => {
 
-                            }, 400);
+                                const fimDoConto = document.createElement('div');
+                                fimDoConto.classList.add('fim-do-conto', 'blurin');
+                                fimDoConto.innerHTML = 'Fim';
+                                conteudoPage02.appendChild(fimDoConto);
 
-                        }, 200);
-                        
-                    }
-               
+                                setTimeout(() => {
+                                    const p005 = document.createElement('p');
+                                    p005.classList.add('p005', 'blurin');
+                                    $(document).ready(function () {
+                                        $(".p005").load("textos/p005.txt");
+                                    });
+                                    conteudoPage02.appendChild(p005);
+                                    setTimeout(() => {
+                                        const botaoReset = document.createElement('button');
+                                        botaoReset.classList.add('botao-reset', 'blurin');
+                                        botaoReset.innerText = 'Resetar conto';
+                                        conteudoPage02.appendChild(botaoReset);
+                                        botaoReset.addEventListener('mouseover', funcaoEscurecerPage);
+                                        botaoReset.addEventListener('mouseout', funcaoClarearPage);
+                                        botaoReset.onclick = () => {
+                                            page02.classList.add('blurout-fast');
+                                            setTimeout(() => {
+                                                location.reload();
+                                            }, 1500);
+                                        }
+                                    }, 1000);
+                                }, 1000);
+                            }, 4000);
+
+                        }
+
+                        setTimeout(() => {
+
+                        }, 400);
+
+                    }, 200);
+
+                }
+
             }
 
         }, 5000);
