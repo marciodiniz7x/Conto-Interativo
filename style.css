@@ -103,22 +103,22 @@ p {
 
 .iniciar-leitura {
     margin-top: 50%;
-    background-color: #397445;
-    color: white;
+    background-color: white;
+    color: #397445;
     font-family: 'Goudy Bookletter 1911', serif;
     box-shadow: 1px 1px 20px 5px rgb(149, 230, 163);
     width: 250px;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    font-size: 25px;
+    font-size: 28px;
     cursor: pointer;
     transition: 400ms;
 }
 .iniciar-leitura:hover {
-    background-color: rgb(255, 255, 255);
-    color: black;
-    box-shadow: 1px 1px 25px 7px aliceblue;
+    background-color: #397445;
+    color: white;
+   
 }
 
 .goo-eyes {
