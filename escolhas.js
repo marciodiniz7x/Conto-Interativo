@@ -75,6 +75,7 @@ function playEscolhasSom() {
 gooEyes.classList.add('piscar');
 
 // Animações ao iniciar a capa
+
 function animarCapa() {
 
     capa.classList.add('blurin');
@@ -92,6 +93,10 @@ function animarCapa() {
     }, 300);
 
 }
+    
+   
+
+
 
 // Desligar animações finalizadas
 function desligarCapa() {
@@ -105,7 +110,7 @@ function desligarCapa() {
 }
 
 function iniciarCapa() {
-
+    
     tocarMusica();
     animarCapa();
 
